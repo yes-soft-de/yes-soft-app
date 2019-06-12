@@ -1,4 +1,4 @@
-package com.sixbits.yessoft.model;
+package de.yessoft.android.mohammad.model;
 
 public class NewsItemContent {
 
