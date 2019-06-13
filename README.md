@@ -4,23 +4,30 @@ This Application is used For Yes Soft Company and serves many things, but what i
 
 ## Next
 
-Merging the Notification and the NewsFeed to make this week Sprint Product, this will be tommrow 9:30 PM
+To Be Announced on Saturday, 10 PM, C yah then :)
 
 
+## Change Log
+
+* master edition to be used
+* This version is the result of merging Kenan and Mohammad's Work in single Branch
+* Zoom Enabled on Cards Images with pinch 
+* Structured By Packages
+* To be reviewed and pulled ASAP
 
 
+## Known Bugs
 
-## Tips For Next week
+* Deprecation of Notification Builder on Android O
+* Notifications needs improvment
+* Logo, Icon
+* Colours
 
-	To Be Provided after the submition of the MVP this week :)
-### Be Ready
+## Done Old
 
-
-
-
-
-## Done
-
+* Bugs fixes
+* Added Firebase Messaging Notification Support
+* Added App Bar
 * Authentication Using Google and Phone Auth Using Firebase Auth Service
 * Firebase Firestore Implimintation is Finished
 * Notification is Done
