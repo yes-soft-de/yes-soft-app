@@ -1,10 +1,9 @@
 package de.yessoft.android.mohammad.ui.MainActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,9 +17,10 @@ import de.yessoft.android.mohammad.ui.MainActivity.fragments.NewsFeedFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "ML_MainActivity";
+    // private static final String TAG = "ML_MainActivity";
     private static final int RC_SIGN_IN = 19;
 
+    // region Life Cycle of an Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         // endregion
     }
+
+    // endregion
 
     // region Sign In Functions
     private void signIn() {

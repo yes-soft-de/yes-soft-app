@@ -10,11 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
+import com.stfalcon.imageviewer.StfalconImageViewer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +32,16 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsCardVH>
     private static final String TAG = "ML_NewsFeedRV";
 
     private List<NewsItem> NewsFeedList;
+    private Context myContext;
 
-    public NewsFeedAdapter() {
+    public NewsFeedAdapter(Context context) {
         // for Toast Purposes
         // TODO: Structure This To Inform Center, Which shall Deliver Error in Good Manner :)
 
+        myContext = context;
         NewsFeedList = new ArrayList<>();
+
+        Toast.makeText(myContext, "Loading Images :)", Toast.LENGTH_SHORT).show();
     }
 
     @NonNull
@@ -60,9 +61,15 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsCardVH>
         holder.tvHeader.setText(newsItem.getHeading());
         holder.tvSummery.setText(newsItem.getSummery());
 
-        // holder.btnMore.setOnClickListener((v) -> Log.d(TAG, "onBindViewHolder: Error"));
+        holder.btnMore.setOnClickListener((v) -> Toast.makeText(myContext, "Building That, Please Be Patient :)", Toast.LENGTH_SHORT).show());
+
+        List<String> images = new ArrayList<>();
+        images.add(NewsFeedList.get(position).getImg());
+
 
         Picasso.get().load(newsItem.getImg()).into(holder.ivImg);
+        Log.d(TAG, "onBindViewHolder: " + newsItem.getImg());
+        holder.ivImg.setOnClickListener(v -> new StfalconImageViewer.Builder<>(myContext, images, (imageView, image) -> Picasso.get().load(newsItem.getImg()).into(imageView)).show());
     }
 
     @Override
@@ -73,6 +80,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsCardVH>
 
     @Override
     public void addNewsItem(NewsItem newsItem) {
+        Log.d(TAG, "addNewsItem: Row Added");
         NewsFeedList.add(newsItem);
         notifyDataSetChanged();
     }

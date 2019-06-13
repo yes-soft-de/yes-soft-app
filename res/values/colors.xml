@@ -10,6 +10,6 @@
     <color name="secondaryTextColor">#000000</color>
 
     <color name="colorPrimary">#1976d2</color>
-    <color name="colorPrimaryDark">#004ba0</color>
-    <color name="colorAccent">#e64a19</color>
+    <color name="colorPrimaryDark">#E64A19</color>
+    <color name="colorAccent">#E64A19</color>
 </resources>

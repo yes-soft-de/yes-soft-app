@@ -26,7 +26,7 @@ public class NewsCardVH extends RecyclerView.ViewHolder {
         tvHeader = itemView.findViewById(R.id.tv_news_header);
         tvSummery = itemView.findViewById(R.id.tv_news_summery);
 
-        btnMore = itemView.findViewById(R.id.btn_holder);
+        btnMore = itemView.findViewById(R.id.btn_more);
 
         ivImg = itemView.findViewById(R.id.iv_news_image);
 

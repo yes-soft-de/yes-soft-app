@@ -1,7 +1,6 @@
 package de.yessoft.android.mohammad.ui.MainActivity.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import de.yessoft.android.mohammad.R;
 import de.yessoft.android.mohammad.ui.MainActivity.fragments.NewsFeedRV.NewsFeedAdapter;
 
 public class NewsFeedFragment extends Fragment {
-    private static final String TAG = "ML_NewsFeedFragment";
+    //private static final String TAG = "ML_NewsFeedFragment";
 
     @Nullable
     @Override
@@ -26,7 +25,7 @@ public class NewsFeedFragment extends Fragment {
         RecyclerView rvNewsFeed = v.findViewById(R.id.rv_news_feed);
 
         rvNewsFeed.setLayoutManager(new LinearLayoutManager(getContext()));
-        NewsFeedAdapter adapter = new NewsFeedAdapter();
+        NewsFeedAdapter adapter = new NewsFeedAdapter(getContext());
         rvNewsFeed.setAdapter(adapter);
 
         MySpecialORM myORM = new MySpecialORM(adapter);
