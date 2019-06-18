@@ -15,10 +15,9 @@ public final class DB_KEYS {
     public static final String KEY_NEWS_FEED_SUMMERY = "summery";
     public static final String KEY_NEWS_FEED_FULL_NEWS_ID = "full_news_id";
 
-    public static final String KEY_FULL_NEWS_HEADING = "full_news_id";
+    public static final String KEY_FULL_NEWS_HEADING = "full_news_head";
     public static final String KEY_FULL_NEWS_BODY = "full_news_body";
     public static final String KEY_FULL_NEWS_IMAGE_URL = "img_url";
     public static final String KEY_FULL_NEWS_WEB_URL = "web_url";
-
 
 }

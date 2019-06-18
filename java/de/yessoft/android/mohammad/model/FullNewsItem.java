@@ -19,6 +19,7 @@ public class FullNewsItem {
         bundle.putString(DB_KEYS.KEY_FULL_NEWS_HEADING, Heading);
         bundle.putString(DB_KEYS.KEY_FULL_NEWS_IMAGE_URL, ImgURL);
         bundle.putString(DB_KEYS.KEY_FULL_NEWS_BODY , Body);
+        bundle.putString(DB_KEYS.KEY_FULL_NEWS_WEB_URL, webURL);
 
         return bundle;
 

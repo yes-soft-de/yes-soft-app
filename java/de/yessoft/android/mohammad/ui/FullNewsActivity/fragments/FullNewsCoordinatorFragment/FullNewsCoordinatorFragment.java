@@ -68,13 +68,12 @@ public class FullNewsCoordinatorFragment extends Fragment implements FullNewsCoo
         // after getting the request the Coordinator should Inflate Error Fragment,
         // After inflating Error Fragment will use @param errMsg to set the Error Msg
 
+        Log.d(TAG, "errGettingFullNews: Error! " + errMsg);
         // Create the Fragment
         Fragment fragment = new ErrorFragment();
 
         // Set the Argument to it, namely errMsg
-        Bundle bundle = new Bundle();
-        bundle.putString(KEY_ERR_MSG, errMsg);
-        fragment.setArguments(bundle);
+        fragment.setArguments(generator.generateBundle(KEY_ERR_MSG, errMsg));
 
         // Request
         getChildFragmentManager()
@@ -85,6 +84,7 @@ public class FullNewsCoordinatorFragment extends Fragment implements FullNewsCoo
 
     @Override
     public void setFullNews(FullNewsItem fullNewsItem) {
+        Log.d(TAG, "setFullNews: Moving To Full News");
         Fragment fragment = new FullNewsFragment();
 
         fragment.setArguments(fullNewsItem.toBundle());

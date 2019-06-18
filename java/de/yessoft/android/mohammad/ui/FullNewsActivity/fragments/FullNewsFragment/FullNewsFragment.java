@@ -1,16 +1,20 @@
 package de.yessoft.android.mohammad.ui.FullNewsActivity.fragments.FullNewsFragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.squareup.picasso.Picasso;
 
 import de.yessoft.android.mohammad.R;
@@ -36,6 +40,18 @@ public class FullNewsFragment extends Fragment {
         tvHeader.setText(item.getHeading());
         tvBody.setText(item.getBody());
         Picasso.get().load(item.getImgURL()).into(ivImage);
+
+        MaterialButton btn = v.findViewById(R.id.btn_see_in_chrome);
+        btn.setOnClickListener(v1 -> {
+            if (item.getWebURL() == null || item.getWebURL().length() < 4){
+                Toast.makeText(getContext(), "This is Android Only Article :)", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(item.getWebURL()));
+                startActivity(i);
+            }
+
+        });
 
         return v;
     }

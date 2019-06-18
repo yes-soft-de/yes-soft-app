@@ -1,7 +1,6 @@
 package de.yessoft.android.mohammad.ui.MainActivity.fragments.NewsFeedFragment.NewsFeedRV;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +70,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsCardVH>
 
 
         Picasso.get().load(newsItem.getImg()).into(holder.ivImg);
-        Log.d(TAG, "onBindViewHolder: " + newsItem.getImg());
         holder.ivImg.setOnClickListener(v -> new StfalconImageViewer.Builder<>(myContext, images, (imageView, image) -> Picasso.get().load(newsItem.getImg()).into(imageView)).show());
         holder.btnMore.setOnClickListener((v) -> {
             newsFeedInterface.requestFullNewsWithId(newsItem.getFullNewsId());
@@ -86,7 +84,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsCardVH>
 
     @Override
     public void addNewsItem(NewsItem newsItem) {
-        Log.d(TAG, "addNewsItem: Row Added");
         NewsFeedList.add(newsItem);
         notifyDataSetChanged();
     }

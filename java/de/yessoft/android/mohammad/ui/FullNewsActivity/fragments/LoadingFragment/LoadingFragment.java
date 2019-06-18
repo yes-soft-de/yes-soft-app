@@ -2,6 +2,7 @@ package de.yessoft.android.mohammad.ui.FullNewsActivity.fragments.LoadingFragmen
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import de.yessoft.android.mohammad.ui.FullNewsActivity.fragments.FullNewsCoordin
 import de.yessoft.android.mohammad.consts.*;
 
 public class LoadingFragment extends Fragment {
-
+    private static final String TAG = "ML_LoadingFragment";
     private FullNewsCoordinator coordinator;
 
     @Override
@@ -41,10 +42,13 @@ public class LoadingFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_loading, container, false);
 
         if (getArguments() != null) {
-            String id = getArguments().getString(DB_KEYS.KEY_NEWS_FEED_FULL_NEWS_ID, null);
+            String id = getArguments().getString(BUNDLE_KEYS.KEY_FULL_NEWS_ID, null);
             if (id != null) {
+                Log.d(TAG, "onCreateView: Requesting News ID: " + id);
                 // start the request
                 requestFullNews(id);
+            } else {
+                coordinator.errGettingFullNews("Error Getting Full News ID, Application Problem");
             }
         } else {
             // Either the Application didn't send the full news id, or the it is null in the database
@@ -55,7 +59,7 @@ public class LoadingFragment extends Fragment {
     }
 
     private void requestFullNews(String id) {
-
+        Log.d(TAG, "requestFullNews: Requesting News");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         DocumentReference newsItems = db.collection(DB_KEYS.TABLE_FULL_NEWS).document(id);
@@ -70,7 +74,7 @@ public class LoadingFragment extends Fragment {
                     // Collect the Document and Export it For Further Processing
                     FullNewsMapper mapper = new FullNewsMapper();
                     coordinator.setFullNews(mapper.toFullNews(document));
-
+                    Log.d(TAG, "requestFullNews: ");
                 } else {
 
                     // There we get an error
