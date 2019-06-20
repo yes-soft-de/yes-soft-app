@@ -11,4 +11,5 @@
     <string name="redirect_to_web">Read In Web Browser</string>
     <string name="unknown_error_msg">Why Are You Here??</string>
     <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
