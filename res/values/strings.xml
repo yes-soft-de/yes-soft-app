@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Yes Soft Complete</string>
     <string name="card_header">Report #1 June 12 2019</string>
-    <string name="go_to_full_news">More…</string>
+    <string name="more">More…</string>
     <string name="error_404">Sorry, This article was not found :(</string>
     <string name="full_news_header">Header Of the News</string>
     <string name="placeholder_text">jhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvjjhasbjhsvahvasjcvsvcvscayvcusvcsvjshvjasvcjsahcvjsavcsjacvhhjacshvj</string>
@@ -10,4 +10,6 @@
     <string name="nav_services">Services</string>
     <string name="redirect_to_web">Read In Web Browser</string>
     <string name="unknown_error_msg">Why Are You Here??</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

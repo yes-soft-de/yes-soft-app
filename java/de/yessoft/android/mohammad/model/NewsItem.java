@@ -2,6 +2,8 @@ package de.yessoft.android.mohammad.model;
 
 import android.os.Bundle;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+
 import static de.yessoft.android.mohammad.consts.DB_KEYS.KEY_NEWS_FEED_FULL_NEWS_ID;
 import static de.yessoft.android.mohammad.consts.DB_KEYS.KEY_NEWS_FEED_HEADING;
 import static de.yessoft.android.mohammad.consts.DB_KEYS.KEY_NEWS_FEED_IMG;
@@ -18,8 +20,19 @@ public class NewsItem {
     // region Construct
     public NewsItem() {
     }
+
+    public NewsItem(DocumentSnapshot documentSnapshot){
+        setHeading((String) documentSnapshot.get(KEY_NEWS_FEED_HEADING));
+        setSummery((String) documentSnapshot.get(KEY_NEWS_FEED_SUMMERY));
+        setImg((String) documentSnapshot.get(KEY_NEWS_FEED_IMG));
+        setFullNewsId((String) documentSnapshot.get(KEY_NEWS_FEED_FULL_NEWS_ID));
+    }
     // endregion
 
+    // Checker, Only Heading is Required
+    boolean isNodeOK(){
+        return !Heading.isEmpty();
+    }
 
     Bundle toBundle(){
         Bundle resultMap = new Bundle();

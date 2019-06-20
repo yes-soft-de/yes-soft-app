@@ -9,5 +9,5 @@ public final class BUNDLE_KEYS {
 
     public static final String KEY_ERR_MSG = "error_msg";
 
-    public static final String KEY_FULL_NEWS_ID = "id";
+    public static final String KEY_ARTICLE_ID = "id";
 }

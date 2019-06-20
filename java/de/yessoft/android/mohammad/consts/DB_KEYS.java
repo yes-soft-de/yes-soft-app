@@ -8,16 +8,25 @@ public final class DB_KEYS {
       */
 
     public static final String TABLE_NEWS_FEED = "newsfeed";
-    public static final String TABLE_FULL_NEWS = "fullnews";
+    public static final String TABLE_FULL_ARTICLE = "articles";
+    public static final String TABLE_SERVICES = "services";
 
+    // region News Feed Keys
     public static final String KEY_NEWS_FEED_HEADING = "heading";
     public static final String KEY_NEWS_FEED_IMG = "img";
     public static final String KEY_NEWS_FEED_SUMMERY = "summery";
     public static final String KEY_NEWS_FEED_FULL_NEWS_ID = "full_news_id";
+    // endregion
 
-    public static final String KEY_FULL_NEWS_HEADING = "full_news_head";
-    public static final String KEY_FULL_NEWS_BODY = "full_news_body";
-    public static final String KEY_FULL_NEWS_IMAGE_URL = "img_url";
-    public static final String KEY_FULL_NEWS_WEB_URL = "web_url";
+    // region Full Article Keys
+    public static final String KEY_ARTICLE_BLOCK_TYPE = "type";
+    public static final String KEY_ARTICLE_BLOCK_CONTENT = "content";
+    // endregion
 
+    // region Services
+    public static final String KEY_SERVICE_HEAD = "head";
+    public static final String KEY_SERVICE_BODY = "body";
+    public static final String KEY_SERVICE_IMAGE = "img";
+    public static final String KEY_SERVICE_URL = "article_id";
+    // endregion
 }
