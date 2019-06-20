@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_full_news_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="36dp"
+                android:text="@string/full_news_header"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_full_news_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="@android:color/darker_gray"
+                android:cropToPadding="true"
+                android:minHeight="30dp"
+                tools:src="@tools:sample/backgrounds/scenic"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/tv_full_news_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="36dp"
+                android:text="@string/full_news_body"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_see_in_chrome"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/redirect_to_web"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

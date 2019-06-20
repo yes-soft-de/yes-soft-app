@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "357549434672",
+    "firebase_url": "https://yes-soft-app.firebaseio.com",
+    "project_id": "yes-soft-app",
+    "storage_bucket": "yes-soft-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357549434672:android:f1b82fa752ffa2eb",
+        "android_client_info": {
+          "package_name": "com.sixbits.yessoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357549434672-j240qupfsq1rbdiqddvesv4escjd3eq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sixbits.yessoft",
+            "certificate_hash": "530c83858145b859d6171ac83460e8248c3554bc"
+          }
+        },
+        {
+          "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-OS9XIOAjVLzKVRFJWw9Z1GnKmwgL7P8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357549434672:android:650285c9b975f7b5",
+        "android_client_info": {
+          "package_name": "de.yessoft.android.mohammad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357549434672-gagk9mehratu24drcij3vv7ss3ac9uhu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "de.yessoft.android.mohammad",
+            "certificate_hash": "530c83858145b859d6171ac83460e8248c3554bc"
+          }
+        },
+        {
+          "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-OS9XIOAjVLzKVRFJWw9Z1GnKmwgL7P8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357549434672:android:eeb1763fc58dfa87",
+        "android_client_info": {
+          "package_name": "de.yessoft.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-OS9XIOAjVLzKVRFJWw9Z1GnKmwgL7P8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357549434672-39qflna2f7vhtq7i4g2pq0jqphvmlo1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
