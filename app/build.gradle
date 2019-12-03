@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.0"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "de.yessoft.android.mohammad"
+        applicationId "de.yessoft.android"
         minSdkVersion 22
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -18,39 +18,42 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    // region UI Dependencies
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    // endregion
-
-    // region Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.9'
-    implementation 'com.google.firebase:firebase-auth:17.0.0'
-    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
-    implementation 'com.google.firebase:firebase-firestore:19.0.2'
-    implementation 'com.google.firebase:firebase-messaging:18.0.0'
-    // endregion
-
-    // region Image Loaders
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    // endregion
-
-    // region Unit Tests
-    testImplementation 'junit:junit:4.13-beta-3'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    // endregion
 
-    // region Zoom Functionality
-    implementation 'com.github.stfalcon:stfalcon-imageviewer:0.1.0'
-    // endregion
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+
+    implementation 'com.ramotion.navigationtoolbar:navigation-toolbar:0.1.3'
+    implementation 'com.ramotion.cardslider:card-slider:0.3.1'
+    implementation 'com.ramotion.foldingcell:folding-cell:1.2.3'
+    implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
+
+    def markwonVersion = "4.2.0"
+
+    implementation "io.noties.markwon:core:${markwonVersion}"
+    implementation 'com.mxn.soul:flowingdrawer-core:2.1.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+
+    implementation 'com.karumi:dexter:6.0.1'
+
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 }
-apply plugin: 'com.google.gms.google-services'

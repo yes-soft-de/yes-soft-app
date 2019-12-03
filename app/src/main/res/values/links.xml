@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="link_facebook_page">fb://mohammad.kalaleeb/</string>
-    <string name="link_chat_whatsapp">https://chat.whatsapp.com/</string>
-    <string name="link_telegram">https://t.me/</string>
-    <string name="link_linked_in">https://www.linkedin.com/</string>
-    <string name="link_web">https://www.google.com/</string>
-</resources>
