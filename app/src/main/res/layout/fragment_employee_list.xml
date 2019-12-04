@@ -16,6 +16,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:backgroundTint="#FAFAFB"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:background="@drawable/temperature_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_yes_soft_logo" />
+    </FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_employee_cards"
         android:layout_width="match_parent"
