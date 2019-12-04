@@ -1,9 +1,9 @@
 package de.yessoft.android.entity;
 
 public class Employee {
-    String mName;
-    String mAge;
-    String mImageLink;
+    private String mName;
+    private String mAge;
+    private String mImageLink;
 
     public Employee() {
     }

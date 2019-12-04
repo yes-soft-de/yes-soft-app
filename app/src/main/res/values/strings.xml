@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Yes Soft</string>
+
+    <string name="profile_blogs">Blogs</string>
+    <string name="profile_projects">Projects</string>
+    <string name="profile_skills">Skills</string>
+    <string name="profile_info">Info</string>
+
+    <string name="sample_blog_date">Jun 2019</string>
+
+    <string name="read_blog">Read Blog…</string>
 </resources>

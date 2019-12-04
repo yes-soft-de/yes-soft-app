@@ -47,6 +47,8 @@ dependencies {
     implementation 'com.mxn.soul:flowingdrawer-core:2.1.0'
     implementation 'com.nineoldandroids:library:2.4.0'
 
+    implementation "com.cleveroad:loopbar:1.2.0"
+
     implementation 'com.karumi:dexter:6.0.1'
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
