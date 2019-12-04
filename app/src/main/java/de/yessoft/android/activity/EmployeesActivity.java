@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import de.yessoft.android.R;
-import de.yessoft.android.fragments.EmployeeDetailsFragment;
+import de.yessoft.android.fragments.EmployeeListFragment.EmployeeListFragment;
 
 public class EmployeesActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class EmployeesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employees);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_employees, new EmployeeDetailsFragment())
+                .replace(R.id.fl_employees, new EmployeeListFragment())
                 .commit();
     }
 }

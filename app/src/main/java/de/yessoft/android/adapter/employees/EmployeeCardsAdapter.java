@@ -14,15 +14,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import de.yessoft.android.R;
-import de.yessoft.android.entity.Employee;
+import de.yessoft.android.entity.EmployeeDetails;
+import de.yessoft.android.entity.EmployeeInfo;
 
 public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsViewHolder> {
 
     private Context mContext;
 
-    private List<Employee> mEmployeeList;
+    private List<EmployeeDetails> mEmployeeList;
 
-    public EmployeeCardsAdapter(Context context, List<Employee> employeeList) {
+    public EmployeeCardsAdapter(Context context, List<EmployeeDetails> employeeList) {
         mContext = context;
         mEmployeeList = employeeList;
     }
@@ -42,7 +43,7 @@ public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsView
     @Override
     public void onBindViewHolder(@NonNull EmployeeCardsViewHolder holder, int position) {
         Glide.with(mContext)
-                .load(mEmployeeList.get(position).getImageLink())
+                .load(mEmployeeList.get(position).getInfo().getImageLink())
                 .centerCrop()
                 .placeholder(R.drawable.gradient_map)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -57,7 +58,7 @@ public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsView
         return mEmployeeList.size();
     }
 
-    public void setEmployeeList(List<Employee> employeeList) {
+    public void setEmployeeList(List<EmployeeDetails> employeeList) {
         this.mEmployeeList = employeeList;
     }
 }
