@@ -5,8 +5,9 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_employee_projects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/fragment_project_details" />
+        tools:listitem="@layout/layout_project_details" />
 
 </LinearLayout>

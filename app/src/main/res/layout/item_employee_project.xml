@@ -10,10 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_dark"
-        android:visibility="gone"/>
+        android:visibility="gone">
+        <include layout="@layout/layout_project_details"/>
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/fl_i_project_folded"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+        <include layout="@layout/layout_project_overview"/>
+    </FrameLayout>
 </com.ramotion.foldingcell.FoldingCell>
