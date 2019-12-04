@@ -48,7 +48,7 @@ public class BlogsListAdapter extends RecyclerView.Adapter<BlogViewHolder> {
         holder.tvDate.setText(mBlogList.get(position).getPublishDate());
         holder.tvTitle.setText(mBlogList.get(position).getTitle());
         holder.tvLink.setOnClickListener((btn) -> {
-            mContext.startActivity(new Intent(Intent.ACTION_OPEN_DOCUMENT, Uri.parse(mBlogList.get(position).getLink())));
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(mBlogList.get(position).getLink())));
         });
     }
 

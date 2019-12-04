@@ -53,7 +53,7 @@ public class ProjectListAdapter extends RecyclerView.Adapter<ProjectViewHolder> 
         });
 
         holder.btnProjectLink.setOnClickListener((view) -> {
-            mContext.startActivity(new Intent(Intent.ACTION_OPEN_DOCUMENT, Uri.parse(mProjctList.get(position).getLink())));
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(mProjctList.get(position).getLink())));
         });
     }
 
