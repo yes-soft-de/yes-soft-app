@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="link_facebook_page" translatable="false">https://m.facebook.com/yes.soft.de/</string>
+    <string name="link_phone_01" translatable="false">tel:+491633733146</string>
+    <string name="link_phone_02" translatable="false">tel:+96171575052</string>
+    <string name="link_email" translatable="false">info@yes-soft.de</string>
+    <string name="link_linked_in" translatable="false">https://www.linkedin.com/company/yes-soft</string>
+    <string name="link_web" translatable="false">https://yes-soft.de/</string>
+    <string name="link_whatsapp" translatable="false">smsto:96171575052</string>
+</resources>

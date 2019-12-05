@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.yessoft.android.R;
+import de.yessoft.android.activity.MainActivity.IMainActivity;
 import de.yessoft.android.adapter.dashboard.DashboardAdapter;
 
 public class DashboardFragment extends Fragment {
@@ -27,7 +28,7 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         ButterKnife.bind(this, view);
 
-        rvDashboard.setAdapter(new DashboardAdapter(getContext()));
+        rvDashboard.setAdapter(new DashboardAdapter(getContext(), (IMainActivity) getActivity()));
         rvDashboard.setLayoutManager(new LinearLayoutManager(getContext()));
         initViews();
 
