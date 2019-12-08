@@ -15,13 +15,38 @@
         app:edMenuSize="260dp"
         app:edPosition="1">
 
-        <FrameLayout
-            android:id="@+id/fl_main"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="openDrawer">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="openDrawer"
+                        app:navigationIcon="@drawable/ic_menu_black_24dp"
+                        app:title="Yes Soft"
+                        app:titleTextColor="@android:color/white" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
-            android:id="@+id/menulayout"
+            android:id="@+id/fl_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

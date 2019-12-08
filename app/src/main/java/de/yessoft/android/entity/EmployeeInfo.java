@@ -1,11 +1,28 @@
 package de.yessoft.android.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class EmployeeInfo {
+
+    @SerializedName("name")
     private String mName;
+
+    @SerializedName("age")
     private String mAge;
+
+    @SerializedName("link")
     private String mImageLink;
-    private String mQuote;
+
+    @SerializedName("position")
     private String mPosition;
+<<<<<<< Updated upstream
+=======
+
+    @SerializedName("id")
+    private String mId;
+>>>>>>> Stashed changes
+
+    private String mQuote;
 
     public EmployeeInfo() {
     }

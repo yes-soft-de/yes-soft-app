@@ -5,10 +5,11 @@ import java.util.List;
 import de.yessoft.android.entity.Blog;
 import de.yessoft.android.entity.EmployeeInfo;
 import de.yessoft.android.entity.Project;
+import de.yessoft.android.entity.Skill;
 
 public interface IEmployeeList {
     List<Blog> getBlogList();
-    List<String> getSkillList();
+    List<Skill> getSkillList();
     List<Project> getProjectList();
     EmployeeInfo getInfo();
 }

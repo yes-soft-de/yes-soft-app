@@ -1,9 +1,19 @@
 package de.yessoft.android.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Project {
+
+    @SerializedName("start_date")
     private String mStartDate;
+
+    @SerializedName("end_date")
     private String mEndDate;
+
+    @SerializedName("title")
     private String mTitle;
+
+    @SerializedName("link")
     private String mLink;
 
     public Project() {

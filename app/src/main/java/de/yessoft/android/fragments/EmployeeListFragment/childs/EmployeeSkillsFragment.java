@@ -2,7 +2,6 @@ package de.yessoft.android.fragments.EmployeeListFragment.childs;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.yessoft.android.R;
+import de.yessoft.android.entity.Skill;
 import de.yessoft.android.fragments.EmployeeListFragment.IEmployeeList;
 
 public class EmployeeSkillsFragment extends Fragment {
@@ -44,11 +43,12 @@ public class EmployeeSkillsFragment extends Fragment {
     }
 
     private void initChips() {
-        for (String skill : mParent.getSkillList()) {
-            assert getContext() != null;
-            Chip chip = new Chip(getContext());
-            chip.setText(skill);
-            skillsChips.addView(chip);
-        }
+        if (mParent.getSkillList() != null && mParent.getSkillList().size() > 0)
+            for (Skill skill : mParent.getSkillList()) {
+                assert getContext() != null;
+                Chip chip = new Chip(getContext());
+                chip.setText(skill.getSkill());
+                skillsChips.addView(chip);
+            }
     }
 }
