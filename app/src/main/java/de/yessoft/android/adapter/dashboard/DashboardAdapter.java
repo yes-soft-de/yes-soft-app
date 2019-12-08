@@ -14,15 +14,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.yessoft.android.R;
+import de.yessoft.android.activity.BlogsActivity;
 import de.yessoft.android.activity.EmployeesActivity;
+import de.yessoft.android.activity.MainActivity.IMainActivity;
+import de.yessoft.android.activity.ServicesActivity;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
     private List<mItem> items = new ArrayList<>();
 
     private Context mContext;
+    private IMainActivity mParentActivity;
 
     public DashboardAdapter(Context context) {
         mContext = context;
+        initAdapter(context);
+    }
+
+    public DashboardAdapter(Context context, IMainActivity parent) {
+        mContext = context;
+        initAdapter(context);
+        mParentActivity = parent;
+    }
+
+    void initAdapter(Context context) {
         items.add(new mItem("Our Services", context.getDrawable(R.color.card_01), R.drawable.dashboard_services));
         items.add(new mItem("Our Team", context.getDrawable(R.color.card_02), R.drawable.dashboard_team));
         items.add(new mItem("Hire Us", context.getDrawable(R.color.card_03), R.drawable.dashboard_contact));
@@ -43,10 +57,26 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
         holder.image.setImageResource(items.get(position).mImageResource);
         holder.text.setText(items.get(position).mText);
 
-        holder.card.setOnClickListener((v) -> {
-            if (position == 1)
+        if (position == 0) {
+            holder.card.setOnClickListener((v) -> {
+                mContext.startActivity(new Intent(mContext, ServicesActivity.class));
+            });
+        }
+        if (position == 1)
+            holder.card.setOnClickListener((v) -> {
+
                 mContext.startActivity(new Intent(mContext, EmployeesActivity.class));
-        });
+            });
+        if (position == 2) {
+            holder.card.setOnClickListener((v) -> {
+                mParentActivity.openSheets();
+            });
+        }
+        if (position == 3)
+            holder.card.setOnClickListener((v) -> {
+
+                mContext.startActivity(new Intent(mContext, BlogsActivity.class));
+            });
     }
 
     @Override

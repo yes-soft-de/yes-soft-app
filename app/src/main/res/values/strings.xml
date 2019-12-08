@@ -9,4 +9,7 @@
     <string name="sample_blog_date">Jun 2019</string>
 
     <string name="read_blog">Read Blog…</string>
+
+    <string name="bottom_sheet_peek">Sheets Peek</string>
+    <string name="bottom_sheet_content">Sheets Content</string>
 </resources>

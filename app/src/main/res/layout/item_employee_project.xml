@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/folding_cell"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
-    <FrameLayout
-        android:id="@+id/fl_i_project_unfolded"
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_dark"
-        android:visibility="gone">
-        <include layout="@layout/layout_project_details"/>
-    </FrameLayout>
+        android:layout_height="wrap_content">
 
-    <FrameLayout
-        android:id="@+id/fl_i_project_folded"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <include layout="@layout/layout_project_overview"/>
-    </FrameLayout>
-</com.ramotion.foldingcell.FoldingCell>
+        <FrameLayout
+            android:id="@+id/fl_i_project_unfolded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include layout="@layout/layout_project_details" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_i_project_folded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/layout_project_overview" />
+        </FrameLayout>
+    </com.ramotion.foldingcell.FoldingCell>
+</FrameLayout>
