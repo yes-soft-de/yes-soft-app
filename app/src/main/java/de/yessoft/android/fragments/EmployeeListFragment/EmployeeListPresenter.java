@@ -1,8 +1,5 @@
 package de.yessoft.android.fragments.EmployeeListFragment;
 
-<<<<<<< Updated upstream
-public class EmployeeListPresenter {
-=======
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,5 +79,4 @@ public class EmployeeListPresenter {
             return null;
         }
     }
->>>>>>> Stashed changes
 }

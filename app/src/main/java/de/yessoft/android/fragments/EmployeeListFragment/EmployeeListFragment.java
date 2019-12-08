@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,7 +18,6 @@ import com.ramotion.cardslider.CardSnapHelper;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -84,55 +82,6 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
     }
 
     private void initEmployeeList() {
-<<<<<<< Updated upstream
-        // TODO Replace With DB Query
-        mEmployeeList = new ArrayList<>();
-
-        EmployeeInfo info = new EmployeeInfo("Mohammad", "Developer", "24", "Work Hard and Aim High", "https://picsum.photos/200/300");
-        EmployeeInfo info2 = new EmployeeInfo("Mohammad", "Designer", "24", "Work Hard and Aim High", "https://picsum.photos/300/300");
-        List<Project> projectList = new ArrayList<>();
-        projectList.add(new Project("ishtar art", "https://www.google.com","Jun 19", "Aug 19"));
-        projectList.add(new Project("ishtar art", "http://www.google.com","Jun 19", "Aug 19"));
-        projectList.add(new Project("ishtar art", "http://www.google.com","Jun 19", "Aug 19"));
-
-        List<Blog> blogList = new ArrayList<>();
-        blogList.add(new Blog("Android Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Angular Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Web Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("PHP Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Security Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Another Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("And a Blog", "http://www.google.com", "Jun 2019"));
-
-
-        List<String> skillList = new ArrayList<>();
-        skillList.add("Communication");
-        skillList.add("Design Patterns");
-
-        EmployeeDetails employeeDetails = new EmployeeDetails();
-        employeeDetails.setInfo(info);
-        employeeDetails.setProjects(projectList);
-        employeeDetails.setSkills(skillList);
-        employeeDetails.setBlogs(blogList);
-
-        EmployeeDetails employeeDetails2 = new EmployeeDetails();
-        employeeDetails2.setInfo(info2);
-        employeeDetails2.setProjects(projectList);
-        employeeDetails2.setSkills(skillList);
-        employeeDetails2.setBlogs(blogList);
-
-        // As Placeholders
-        for (int i = 0; i < 10; i++)
-            if (i % 2 == 0)
-                mEmployeeList.add(employeeDetails);
-            else
-                mEmployeeList.add(employeeDetails2);
-
-        rvEmployeesCards.setAdapter(new EmployeeCardsAdapter(getContext(), mEmployeeList));
-=======
-        mAdapter = new EmployeeCardsAdapter(getContext());
-        rvEmployeesCards.setAdapter(mAdapter);
->>>>>>> Stashed changes
         rvEmployeesCards.setLayoutManager(new CardSliderLayoutManager(getContext()));
 
         new InfoGetter().execute();

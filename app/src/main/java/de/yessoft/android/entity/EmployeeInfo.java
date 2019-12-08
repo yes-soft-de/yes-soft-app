@@ -15,12 +15,9 @@ public class EmployeeInfo {
 
     @SerializedName("position")
     private String mPosition;
-<<<<<<< Updated upstream
-=======
 
     @SerializedName("id")
     private String mId;
->>>>>>> Stashed changes
 
     private String mQuote;
 
@@ -65,5 +62,13 @@ public class EmployeeInfo {
 
     public String getPosition() {
         return mPosition;
+    }
+
+    public String getId() {
+        return mId;
+    }
+
+    public void setId(String id) {
+        mId = id;
     }
 }

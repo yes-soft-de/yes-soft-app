@@ -1,21 +1,20 @@
 package de.yessoft.android.network;
 
+import java.util.List;
+
+import de.yessoft.android.entity.Blog;
 import de.yessoft.android.entity.EmployeeInfo;
-<<<<<<< Updated upstream
-=======
 import de.yessoft.android.entity.PitchInfo;
 import de.yessoft.android.entity.Project;
 import de.yessoft.android.entity.Skill;
 import retrofit2.Call;
->>>>>>> Stashed changes
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface EmployeeGetterInterface {
     @GET("")
     EmployeeInfo info();
 
-<<<<<<< Updated upstream
-=======
     @GET("employee")
     Call<List<EmployeeInfo>> getClientList();
 
@@ -30,5 +29,4 @@ public interface EmployeeGetterInterface {
 
     @GET("services")
     Call<List<PitchInfo>> getServices();
->>>>>>> Stashed changes
 }
