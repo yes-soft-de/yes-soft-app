@@ -6,7 +6,7 @@ import java.util.List;
 public class EmployeeDetails {
 
     private EmployeeInfo mEmployee;
-    private List<String> mSkills;
+    private List<Skill> mSkills;
     private List<Blog> mBlogs;
     private List<Project> mProjects;
 
@@ -17,7 +17,7 @@ public class EmployeeDetails {
         mProjects = new ArrayList<>();
     }
 
-    public EmployeeDetails(EmployeeInfo info, List<String> skills, List<Blog> blogList, List<Project> projectList) {
+    public EmployeeDetails(EmployeeInfo info, List<Skill> skills, List<Blog> blogList, List<Project> projectList) {
         mEmployee = info;
         mSkills = skills;
         mBlogs = blogList;
@@ -28,7 +28,7 @@ public class EmployeeDetails {
         mEmployee = info;
     }
 
-    public void setSkills(List<String> skills) {
+    public void setSkills(List<Skill> skills) {
         mSkills = skills;
     }
 
@@ -48,7 +48,7 @@ public class EmployeeDetails {
         return mEmployee;
     }
 
-    public List<String> getSkills() {
+    public List<Skill> getSkills() {
         return mSkills;
     }
 

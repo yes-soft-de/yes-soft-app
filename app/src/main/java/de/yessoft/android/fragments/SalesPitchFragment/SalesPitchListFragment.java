@@ -1,7 +1,8 @@
 package de.yessoft.android.fragments.SalesPitchFragment;
 
-import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,70 +10,67 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.yessoft.android.R;
-import de.yessoft.android.activity.MainActivity.MainActivity;
+import de.yessoft.android.adapter.services.ServicesViewPagerAdapter;
+import de.yessoft.android.entity.PitchInfo;
+import de.yessoft.android.service.ServicesService;
+import me.relex.circleindicator.CircleIndicator3;
 
-public class SalesPitchListFragment extends Fragment implements ISalesPitchList{
+public class SalesPitchListFragment extends Fragment implements ISalesPitchList {
+    private static final String TAG = "ML__";
+    @BindView(R.id.vp_services)
+    ViewPager2 mServicesViewPager;
 
-    private int currentPos = 0;
-    private List<PitchInfo> pitchInfoList;
+    @BindView(R.id.vp_services_indicator)
+    CircleIndicator3 indicator;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sales_pitch_list, container, false);
         // Load Services List
-        pitchInfoList = new ArrayList<>();
-        pitchInfoList.add(new PitchInfo("Yes Soft?!!", "https://yes-soft.de/wp-content/themes/yes-soft/img/logo.svg", "#FFFFFF"));
-        pitchInfoList.add(new PitchInfo("Yes Soft?!!", "https://yes-soft.de/wp-content/themes/yes-soft/img/logo.svg", "#FFFFFF"));
-        pitchInfoList.add(new PitchInfo("Yes Soft?!!", "https://yes-soft.de/wp-content/themes/yes-soft/img/logo.svg", "#FFFFFF"));
-        pitchInfoList.add(new PitchInfo("Yes Soft?!!", "https://yes-soft.de/wp-content/themes/yes-soft/img/logo.svg", "#FFFFFF"));
-
+        ButterKnife.bind(this, view);
         startFragmentSequence();
-
         return view;
     }
 
     private void startFragmentSequence() {
-        int[] animH = new int[]{R.anim.slide_in_right, R.anim.slide_out_left};
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl_sales, new SalesPitchFragment())
-                .setCustomAnimations(animH[0], animH[1])
-                .commit();
+        new servicesGetter().execute();
     }
 
-    @Override
-    public void showNextPage() {
-        if (currentPos + 1 > pitchInfoList.size()) {
-            startActivity(new Intent(getContext(), MainActivity.class));
+    public class servicesGetter extends AsyncTask<Void, Void, List<PitchInfo>> {
+        @Override
+        protected List<PitchInfo> doInBackground(Void... voids) {
+            try {
+                List<PitchInfo> infoList = new ServicesService().getServiceList();
+                for (PitchInfo info : infoList)
+                    Log.d(TAG, "doInBackground: " + info);
+                return infoList;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
         }
-        else {
 
-            int[] animH = new int[]{R.anim.slide_in_right, R.anim.slide_out_left};
-            getChildFragmentManager().beginTransaction()
-                    .replace(R.id.fl_sales, new SalesPitchFragment())
-                    .setCustomAnimations(animH[0], animH[1])
-                    .commit();
+        @Override
+        protected void onPostExecute(List<PitchInfo> pitchInfos) {
+            super.onPostExecute(pitchInfos);
+
+            if (pitchInfos == null) {
+                return;
+            }
+
+            ServicesViewPagerAdapter adapter = new ServicesViewPagerAdapter(getContext(), pitchInfos);
+            mServicesViewPager.setAdapter(adapter);
+
+            indicator.setViewPager(mServicesViewPager);
         }
-    }
-
-    @Override
-    public PitchInfo getCurrentInfo() {
-        return pitchInfoList.get(currentPos);
-    }
-
-    public class PitchInfo {
-        public PitchInfo(String text, String image, String bg) {
-            this.text = text;
-            this.imageLink = image;
-            this.bg = bg;
-        }
-        String text;
-        String imageLink;
-        String bg;
     }
 }

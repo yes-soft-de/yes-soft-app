@@ -15,7 +15,6 @@ import java.util.List;
 
 import de.yessoft.android.R;
 import de.yessoft.android.entity.EmployeeDetails;
-import de.yessoft.android.entity.EmployeeInfo;
 
 public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsViewHolder> {
 
@@ -42,12 +41,13 @@ public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsView
 
     @Override
     public void onBindViewHolder(@NonNull EmployeeCardsViewHolder holder, int position) {
-        Glide.with(mContext)
-                .load(mEmployeeList.get(position).getInfo().getImageLink())
-                .centerCrop()
-                .placeholder(R.drawable.gradient_map)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(holder.ivEmployeeImage);
+        if (mEmployeeList.get(position).getInfo().getImageLink() != null)
+            Glide.with(mContext)
+                    .load(mEmployeeList.get(position).getInfo().getImageLink())
+                    .centerCrop()
+                    .placeholder(R.drawable.gradient_map)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(holder.ivEmployeeImage);
     }
 
     @Override
@@ -60,5 +60,6 @@ public class EmployeeCardsAdapter extends RecyclerView.Adapter<EmployeeCardsView
 
     public void setEmployeeList(List<EmployeeDetails> employeeList) {
         this.mEmployeeList = employeeList;
+        notifyDataSetChanged();
     }
 }

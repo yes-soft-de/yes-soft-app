@@ -1,10 +1,10 @@
 package de.yessoft.android.fragments.EmployeeListFragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +18,6 @@ import com.ramotion.cardslider.CardSnapHelper;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,16 +28,18 @@ import de.yessoft.android.entity.Blog;
 import de.yessoft.android.entity.EmployeeDetails;
 import de.yessoft.android.entity.EmployeeInfo;
 import de.yessoft.android.entity.Project;
+import de.yessoft.android.entity.Skill;
 import de.yessoft.android.fragments.EmployeeListFragment.childs.EmployeeBlogsFragment;
 import de.yessoft.android.fragments.EmployeeListFragment.childs.EmployeePersonalInfoFragment;
 import de.yessoft.android.fragments.EmployeeListFragment.childs.EmployeeProjectsFragment;
 import de.yessoft.android.fragments.EmployeeListFragment.childs.EmployeeSkillsFragment;
 
 public class EmployeeListFragment extends Fragment implements IEmployeeList {
-
+    private static final String TAG = "ML__";
     private CardSliderLayoutManager employeesLayoutManager;
     private int currentPosition;
     private List<EmployeeDetails> mEmployeeList;
+    private EmployeeCardsAdapter mAdapter;
 
     // region Views
     @BindView(R.id.rv_employee_cards)
@@ -81,51 +82,10 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
     }
 
     private void initEmployeeList() {
-        // TODO Replace With DB Query
-        mEmployeeList = new ArrayList<>();
-
-        EmployeeInfo info = new EmployeeInfo("Mohammad", "Developer", "24", "Work Hard and Aim High", "https://picsum.photos/200/300");
-        EmployeeInfo info2 = new EmployeeInfo("Mohammad", "Designer", "24", "Work Hard and Aim High", "https://picsum.photos/300/300");
-        List<Project> projectList = new ArrayList<>();
-        projectList.add(new Project("ishtar art", "https://www.google.com","Jun 19", "Aug 19"));
-        projectList.add(new Project("ishtar art", "http://www.google.com","Jun 19", "Aug 19"));
-        projectList.add(new Project("ishtar art", "http://www.google.com","Jun 19", "Aug 19"));
-
-        List<Blog> blogList = new ArrayList<>();
-        blogList.add(new Blog("Android Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Angular Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Web Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("PHP Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Security Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("Another Blog", "http://www.google.com", "Jun 2019"));
-        blogList.add(new Blog("And a Blog", "http://www.google.com", "Jun 2019"));
-
-
-        List<String> skillList = new ArrayList<>();
-        skillList.add("Communication");
-        skillList.add("Design Patterns");
-
-        EmployeeDetails employeeDetails = new EmployeeDetails();
-        employeeDetails.setInfo(info);
-        employeeDetails.setProjects(projectList);
-        employeeDetails.setSkills(skillList);
-        employeeDetails.setBlogs(blogList);
-
-        EmployeeDetails employeeDetails2 = new EmployeeDetails();
-        employeeDetails2.setInfo(info2);
-        employeeDetails2.setProjects(projectList);
-        employeeDetails2.setSkills(skillList);
-        employeeDetails2.setBlogs(blogList);
-
-        // As Placeholders
-        for (int i = 0; i < 10; i++)
-            if (i % 2 == 0)
-                mEmployeeList.add(employeeDetails);
-            else
-                mEmployeeList.add(employeeDetails2);
-
-        rvEmployeesCards.setAdapter(new EmployeeCardsAdapter(getContext(), mEmployeeList));
         rvEmployeesCards.setLayoutManager(new CardSliderLayoutManager(getContext()));
+
+        new InfoGetter().execute();
+
         new CardSnapHelper().attachToRecyclerView(rvEmployeesCards);
 
         rvEmployeesCards.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -146,55 +106,63 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
 
     // region View Updates
     private void displayGeneralInfo() {
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl_employees, new EmployeePersonalInfoFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fl_employees, new EmployeePersonalInfoFragment())
+                    .commit();
     }
 
     private void displayGeneralInfo(int[] animH, int[] animV) {
-        getChildFragmentManager().beginTransaction()
-                .setCustomAnimations(animV[0], animV[1])
-                .replace(R.id.fl_employees, new EmployeePersonalInfoFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .setCustomAnimations(animV[0], animV[1])
+                    .replace(R.id.fl_employees, new EmployeePersonalInfoFragment())
+                    .commit();
     }
 
     private void displayProjects() {
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl_employees, new EmployeeProjectsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fl_employees, new EmployeeProjectsFragment())
+                    .commit();
     }
 
     private void displayProjects(int[] animH, int[] animV) {
-        getChildFragmentManager().beginTransaction()
-                .setCustomAnimations(animV[0], animV[1])
-                .replace(R.id.fl_employees, new EmployeeProjectsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .setCustomAnimations(animV[0], animV[1])
+                    .replace(R.id.fl_employees, new EmployeeProjectsFragment())
+                    .commit();
     }
 
     private void displaySkills() {
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl_employees, new EmployeeSkillsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fl_employees, new EmployeeSkillsFragment())
+                    .commit();
     }
 
     private void displaySkills(int[] animH, int[] animV) {
-        getChildFragmentManager().beginTransaction()
-                .setCustomAnimations(animV[0], animV[1])
-                .replace(R.id.fl_employees, new EmployeeSkillsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .setCustomAnimations(animV[0], animV[1])
+                    .replace(R.id.fl_employees, new EmployeeSkillsFragment())
+                    .commit();
     }
 
     private void displayBlogs() {
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.fl_employees, new EmployeeBlogsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .replace(R.id.fl_employees, new EmployeeBlogsFragment())
+                    .commit();
     }
 
     private void displayBlogs(int[] animH, int[] animV) {
-        getChildFragmentManager().beginTransaction()
-                .setCustomAnimations(animV[0], animV[1])
-                .replace(R.id.fl_employees, new EmployeeBlogsFragment())
-                .commit();
+        if (mEmployeeList != null)
+            getChildFragmentManager().beginTransaction()
+                    .setCustomAnimations(animV[0], animV[1])
+                    .replace(R.id.fl_employees, new EmployeeBlogsFragment())
+                    .commit();
     }
 
     // endregion
@@ -253,22 +221,50 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
 
     @Override
     public List<Blog> getBlogList() {
+        if (mEmployeeList == null) {
+            return null;
+        }
         return mEmployeeList.get(currentPosition).getBlogs();
     }
 
     @Override
-    public List<String> getSkillList() {
+    public List<Skill> getSkillList() {
+        if (mEmployeeList == null) {
+            return null;
+        }
         return mEmployeeList.get(currentPosition).getSkills();
     }
 
     @Override
     public List<Project> getProjectList() {
+        if (mEmployeeList == null) {
+            return null;
+        }
         return mEmployeeList.get(currentPosition).getProjects();
     }
 
     @Override
     public EmployeeInfo getInfo() {
+        if (mEmployeeList == null) {
+            return null;
+        }
         return mEmployeeList.get(currentPosition).getInfo();
     }
     // endregion
+
+    private class InfoGetter extends AsyncTask<Void, Void, List<EmployeeDetails>> {
+
+        @Override
+        protected List<EmployeeDetails> doInBackground(Void... voids) {
+            return new EmployeeListPresenter().getEmployeesDetailsList();
+        }
+
+        @Override
+        protected void onPostExecute(List<EmployeeDetails> employeeDetails) {
+            super.onPostExecute(employeeDetails);
+            mAdapter.setEmployeeList(employeeDetails);
+            mEmployeeList = employeeDetails;
+            displayGeneralInfo();
+        }
+    }
 }

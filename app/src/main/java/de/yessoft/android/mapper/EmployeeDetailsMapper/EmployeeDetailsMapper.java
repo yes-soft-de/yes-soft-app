@@ -11,6 +11,7 @@ import de.yessoft.android.entity.Blog;
 import de.yessoft.android.entity.EmployeeDetails;
 import de.yessoft.android.entity.EmployeeInfo;
 import de.yessoft.android.entity.Project;
+import de.yessoft.android.entity.Skill;
 
 public class EmployeeDetailsMapper implements IEmployeeMapper{
 
@@ -42,7 +43,7 @@ public class EmployeeDetailsMapper implements IEmployeeMapper{
         EmployeeInfo info = getEmployeeInfo(infoJson);
 
         JSONArray skillsJson = object.getJSONArray(KEY_SKILLS);
-        List<String> skills = getSkillsList(skillsJson);
+        List<Skill> skills = getSkillsList(skillsJson);
 
         JSONArray blogsJson = object.getJSONArray(KEY_BLOGS);
         List<Blog> blogsList = getBlogList(blogsJson);
@@ -87,11 +88,11 @@ public class EmployeeDetailsMapper implements IEmployeeMapper{
         );
     }
 
-    private List<String> getSkillsList(JSONArray skillsJson) throws JSONException {
-        List<String> skills = new ArrayList<>();
+    private List<Skill> getSkillsList(JSONArray skillsJson) throws JSONException {
+        List<Skill> skills = new ArrayList<>();
         if (skillsJson.length() > 0) {
             for (int i = 0; i < skillsJson.length(); ++i) {
-                skills.add(skillsJson.getString(i));
+                skills.add(new Skill(skillsJson.getString(i)));
             }
         }
         return skills;

@@ -2,6 +2,7 @@ package de.yessoft.android.activity.MainActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,14 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.yessoft.android.R;
 import de.yessoft.android.fragments.DashboardFragment;
 import de.yessoft.android.fragments.SheetsFragment;
+import de.yessoft.android.fragments.SplashFragment;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity {
 
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     @BindView(R.id.bottom_sheet)
     LinearLayout llBottomSheet;
     BottomSheetBehavior bottomSheetBehavior;
+
+    @BindView(R.id.drawerlayout)
+    FlowingDrawer drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +57,16 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         setupSheets();
 
+        setupDrawer();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fl_main, new DashboardFragment())
+                .commit();
+    }
+
+    void setupDrawer() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_drawer, new SplashFragment())
                 .commit();
     }
 
@@ -76,5 +90,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     public void openSheets() {
         // change the state of the bottom sheet
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+    }
+
+    public void openDrawer(View view) {
+        drawer.openMenu();
     }
 }

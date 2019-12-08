@@ -1,11 +1,25 @@
 package de.yessoft.android.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class EmployeeInfo {
+
+    @SerializedName("name")
     private String mName;
+
+    @SerializedName("age")
     private String mAge;
+
+    @SerializedName("link")
     private String mImageLink;
-    private String mQuote;
+
+    @SerializedName("position")
     private String mPosition;
+
+    @SerializedName("id")
+    private String mId;
+
+    private String mQuote;
 
     public EmployeeInfo() {
     }
@@ -48,5 +62,13 @@ public class EmployeeInfo {
 
     public String getPosition() {
         return mPosition;
+    }
+
+    public String getId() {
+        return mId;
+    }
+
+    public void setId(String id) {
+        mId = id;
     }
 }
