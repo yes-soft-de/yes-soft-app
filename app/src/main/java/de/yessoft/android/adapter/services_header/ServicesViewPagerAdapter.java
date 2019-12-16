@@ -1,4 +1,4 @@
-package de.yessoft.android.adapter.services;
+package de.yessoft.android.adapter.services_header;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -35,11 +33,8 @@ public class ServicesViewPagerAdapter extends RecyclerView.Adapter<ServiceViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ServiceViewHolder holder, int position) {
-        holder.tvText.setText(mInfoList.get(position).text);
-        Glide.with(mContext)
-                .load(mInfoList.get(position).imageLink)
-                .into(holder.ivAvatar);
-        holder.tvText.setTextColor(Color.parseColor(mInfoList.get(position).textColor));
+        holder.ivAvatar.setAnimationFromUrl(mInfoList.get(position).imageLink);
+        holder.ivAvatar.playAnimation();
         holder.ivBg.setBackgroundColor(Color.parseColor(mInfoList.get(position).bg));
     }
 

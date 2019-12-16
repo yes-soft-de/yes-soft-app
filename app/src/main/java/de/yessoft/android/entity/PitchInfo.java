@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class PitchInfo {
     public PitchInfo(String text, String image, String bg) {
         this.text = text;
@@ -29,6 +31,9 @@ public class PitchInfo {
 
     @SerializedName("text_color")
     public String textColor;
+
+    @SerializedName("body")
+    public List<PitchInfo> body;
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();

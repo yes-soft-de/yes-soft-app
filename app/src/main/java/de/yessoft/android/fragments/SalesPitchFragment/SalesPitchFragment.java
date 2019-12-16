@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,9 +26,6 @@ public class SalesPitchFragment extends Fragment {
     @BindView(R.id.sales_bg)
     ConstraintLayout ivBg;
 
-    @BindView(R.id.sales_text)
-    TextView tvText;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,9 +43,6 @@ public class SalesPitchFragment extends Fragment {
         String txt = getArguments().getString("text");
         String link = getArguments().getString("link");
         String bg = getArguments().getString("bg");
-
-        if (txt != null)
-            tvText.setText(txt);
 
         try {
             ivBg.setBackgroundColor(Color.parseColor(bg));

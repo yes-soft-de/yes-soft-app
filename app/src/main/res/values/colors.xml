@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">@color/color_02</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="blue">#348af7</color>
+    <color name="blue">#348AF7</color>
 
     <color name="temperature_background">@android:color/secondary_text_dark</color>
     <color name="temperature_text">@android:color/white</color>
@@ -15,4 +15,9 @@
     <color name="card_01">#01A577</color>
     <color name="card_02">#633A4A</color>
     <color name="card_03">#FCC21B</color>
+
+    <color name="color_01">#394240</color>
+    <color name="color_02">#ee6825</color>
+    <color name="color_03">#45a9b7</color>
+
 </resources>
