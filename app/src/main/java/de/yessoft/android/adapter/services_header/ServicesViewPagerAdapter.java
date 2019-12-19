@@ -1,7 +1,6 @@
 package de.yessoft.android.adapter.services_header;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,6 @@ public class ServicesViewPagerAdapter extends RecyclerView.Adapter<ServiceViewHo
     public void onBindViewHolder(@NonNull ServiceViewHolder holder, int position) {
         holder.ivAvatar.setAnimationFromUrl(mInfoList.get(position).imageLink);
         holder.ivAvatar.playAnimation();
-        holder.ivBg.setBackgroundColor(Color.parseColor(mInfoList.get(position).bg));
     }
 
     @Override

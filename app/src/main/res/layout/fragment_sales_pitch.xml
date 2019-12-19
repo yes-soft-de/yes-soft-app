@@ -14,8 +14,7 @@
         android:scaleType="centerCrop"
         app:lottie_autoPlay="true"
         app:lottie_imageAssetsFolder="assets/"
-        app:lottie_loop="true"
-        app:lottie_renderMode="hardware"
+        app:lottie_renderMode="software"
         app:lottie_repeatMode="reverse" />
 
 </FrameLayout>
