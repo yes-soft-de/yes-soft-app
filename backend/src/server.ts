@@ -11,8 +11,10 @@ import loggerMiddleware from "./middleware/logger";
 const app = new App(
     {
         "port": 3000,
+
         "middleWares": [
             bodyParser.json(),
+            
             bodyParser.urlencoded({ "extended": true }),
             loggerMiddleware,
             corsMiddleware
