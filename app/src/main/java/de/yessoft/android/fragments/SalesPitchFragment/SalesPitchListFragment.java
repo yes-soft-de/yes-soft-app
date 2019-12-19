@@ -1,6 +1,5 @@
 package de.yessoft.android.fragments.SalesPitchFragment;
 
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -81,7 +80,6 @@ public class SalesPitchListFragment extends Fragment implements ISalesPitchList 
             ServiceBodyAdapter bodyAdapter = new ServiceBodyAdapter(getContext(), pitchInfos.get(0).body);
             mServicesViewPager.setAdapter(headerAdapter);
 
-
             btnNext.setEnabled(true);
             btnNext.setOnClickListener((v) -> {
                 Integer currPos = mServicesViewPager.getCurrentItem();
@@ -89,7 +87,6 @@ public class SalesPitchListFragment extends Fragment implements ISalesPitchList 
                     mServicesViewPager.setCurrentItem(currPos + 1);
             });
             tbServices.setTitle(pitchInfos.get(mServicesViewPager.getCurrentItem()).text);
-            tbServices.setTitleTextColor(Color.parseColor(pitchInfos.get(mServicesViewPager.getCurrentItem()).textColor));
             LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
             rvServicesBody.setLayoutManager(layoutManager);
             rvServicesBody.setAdapter(bodyAdapter);

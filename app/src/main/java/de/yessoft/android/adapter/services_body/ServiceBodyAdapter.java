@@ -39,9 +39,20 @@ public class ServiceBodyAdapter extends RecyclerView.Adapter<ServicesBodyViewHol
     @Override
     public void onBindViewHolder(@NonNull ServicesBodyViewHolder holder, int position) {
         holder.image.setAnimationFromUrl(mServiceList.get(position).imageLink);
-        holder.image.playAnimation();
         holder.cardView.setCardBackgroundColor(Color.parseColor(mServiceList.get(position).bg));
         holder.tvService.setText(mServiceList.get(position).text);
+
+        holder.image.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View view) {
+                holder.image.playAnimation();
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View view) {
+                holder.image.pauseAnimation();
+            }
+        });
     }
 
     @Override
