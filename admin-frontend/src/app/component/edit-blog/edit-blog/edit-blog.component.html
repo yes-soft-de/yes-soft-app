@@ -1,0 +1,28 @@
+<div class="flex">
+  <div class="col-6">
+    <mat-list>
+      <mat-list-item class="flex flex-space-between">
+        <h3 mat-line> Title </h3>
+        <p mat-line>
+          <span> Line 1 </span>
+        </p>
+        <button mat-icon-button>
+          <mat-icon class="mat-24">delete</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="mat-24">send</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <form class="flex flex-vertical flex-wrap col-6" [formGroup]="addBlogForm">
+    <mdc-text-field label="Blog Name" required formControlName="name"></mdc-text-field>
+    <mdc-text-field label="Blog Link" required formControlName="link"></mdc-text-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="blogDate" placeholder="Choose a Blog date" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="blogDate"></mat-datepicker-toggle>
+      <mat-datepicker #blogDate></mat-datepicker>
+    </mat-form-field>
+    <button mat-flat-button color="primary">Add Me!</button>
+  </form>
+</div>

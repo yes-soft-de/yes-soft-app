@@ -1,0 +1,39 @@
+@import "../../styles/grid";
+@import "../../styles/margin";
+@import "../../styles/variables";
+
+.justify-center {
+  justify-content: space-around;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.cell {
+
+  // Default Values
+  @include col-6;
+  @include mb-1;
+  padding: 0;
+
+  @media screen and (min-width: $var-md){
+    @include col-4;
+  }
+
+  @media screen and (min-width: $var-l){
+    @include col-3;
+  }
+}
+
+mat-card{
+  img {
+    max-height: 20rem;
+    object-fit: cover;
+  }
+}
+
+

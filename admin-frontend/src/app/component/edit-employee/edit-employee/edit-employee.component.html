@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <span>Edit Employee</span>
+</mat-toolbar>
+<mat-tab-group>
+  <mat-tab label="Personal Info">
+    <form class="flex col-12 flex-wrap" [formGroup]="editEmployeeFrom">
+      <div class="flex flex-vertical col-6">
+        <img src="{{employee.image}}" alt="..." formControlName="image">
+        <mdc-text-field label="Image Link" value="{{employee.image}}" formControlName="image"></mdc-text-field>
+      </div>
+      <div class="flex flex-vertical col-6 p-1">
+        <mdc-text-field label="Employee Name" formControlName="name"></mdc-text-field>
+        <mdc-text-field label="Position/Occupation" formControlName="position"></mdc-text-field>
+        <mdc-text-field label="Facebook Link" formControlName="facebook"></mdc-text-field>
+        <mdc-text-field label="Twitter Link" formControlName="twitter"></mdc-text-field>
+        <mdc-text-field label="LinkedIn Link" formControlName="linkedin"></mdc-text-field>
+        <mdc-text-field label="GitHub Link" formControlName="github"></mdc-text-field>
+      </div>
+    </form>
+    <div class="flex col-12 flex-row-reverse dialog-footer">
+      <button mdc-button (click)="closeDialog()">Discard</button>
+      <button mdc-button outlined>Save</button>
+    </div>
+  </mat-tab>
+  <mat-tab label="Skills">
+    <div class="flex flex-justify-center">
+      <div class="flex flex-vertical col-6">
+        <mdc-chip-set input>
+          <mdc-chip label="Alice">
+            <mdc-chip-icon leading>face</mdc-chip-icon>
+            <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+          </mdc-chip>
+          <mdc-chip label="Bob">
+            <mdc-chip-icon leading>face</mdc-chip-icon>
+            <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+          </mdc-chip>
+          <mdc-chip label='Charlie'>
+            <mdc-chip-icon leading>face</mdc-chip-icon>
+            <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+          </mdc-chip>
+          <mdc-chip label='David'>
+            <mdc-chip-icon leading>face</mdc-chip-icon>
+            <mdc-chip-icon trailing>cancel</mdc-chip-icon>
+          </mdc-chip>
+        </mdc-chip-set>
+        <div class="p-1">
+          <mdc-helper-text #skillHelper validation persistent>New Skill</mdc-helper-text>
+          <mdc-text-field label="New Skill" [helperText]="skillHelper" required></mdc-text-field>
+          <button mat-mini-fab aria-label="Submit New Text" id="skill-submit-btn">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Blogs">
+    <app-edit-blog></app-edit-blog>
+  </mat-tab>
+  <mat-tab label="Projects">
+    <app-edit-project></app-edit-project>
+  </mat-tab>
+</mat-tab-group>
