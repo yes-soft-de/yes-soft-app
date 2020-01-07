@@ -2,15 +2,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/iv_i_employee_card"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:cropToPadding="true"
-        android:scaleType="fitCenter" />
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_i_employee_card"
+            android:layout_width="148dp"
+            android:layout_height="210dp"
+            android:layout_gravity="start|center_vertical"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/avatars" />
+    </FrameLayout>
 
 </androidx.cardview.widget.CardView>

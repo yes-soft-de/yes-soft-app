@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="de.yessoft.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -7,19 +8,33 @@
     <application
         android:name=".application.YesSoft"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@drawable/ic_yes_soft_logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_yes_soft_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BlogsActivity"></activity>
+        <activity android:name=".activity.BlogsActivity" />
         <activity android:name=".activity.ServicesActivity" />
         <activity android:name=".activity.EmployeesActivity" />
-        <activity android:name=".activity.MainActivity.MainActivity">
+        <activity android:name=".activity.mainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.yes-soft..de"
+                    android:pathPrefix="/yes-soft"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
     </application>

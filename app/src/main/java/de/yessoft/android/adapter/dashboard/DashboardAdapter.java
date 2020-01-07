@@ -16,7 +16,7 @@ import java.util.List;
 import de.yessoft.android.R;
 import de.yessoft.android.activity.BlogsActivity;
 import de.yessoft.android.activity.EmployeesActivity;
-import de.yessoft.android.activity.MainActivity.IMainActivity;
+import de.yessoft.android.activity.mainActivity.IMainActivity;
 import de.yessoft.android.activity.ServicesActivity;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {

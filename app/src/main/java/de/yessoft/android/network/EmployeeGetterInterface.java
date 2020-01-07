@@ -12,21 +12,19 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface EmployeeGetterInterface {
-    @GET("")
-    EmployeeInfo info();
 
     @GET("employee")
     Call<List<EmployeeInfo>> getClientList();
 
-    @GET("skill/employee/{employee_id}")
+    @GET("skill/{employee_id}")
     Call<List<Skill>> getEmployeeSkills(@Path("employee_id") String employeeId);
 
-    @GET("project/employee/{employee_id}")
+    @GET("project/{employee_id}")
     Call<List<Project>> getEmployeeProjects(@Path("employee_id") String employeeId);
 
-    @GET("blog/employee/{employee_id}")
+    @GET("blog/{employee_id}")
     Call<List<Blog>> getEmployeeBlogs(@Path("employee_id") String employeeId);
 
-    @GET("services")
+    @GET("service")
     Call<List<PitchInfo>> getServices();
 }

@@ -1,4 +1,4 @@
-package de.yessoft.android.activity.MainActivity;
+package de.yessoft.android.activity.mainActivity;
 
 public interface IMainActivity {
     void openSheets();

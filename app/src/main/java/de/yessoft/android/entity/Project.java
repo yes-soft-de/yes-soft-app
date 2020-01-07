@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Project {
 
-    @SerializedName("start_date")
+    @SerializedName("startDate")
     private String mStartDate;
 
-    @SerializedName("end_date")
+    @SerializedName("endDate")
     private String mEndDate;
 
     @SerializedName("title")

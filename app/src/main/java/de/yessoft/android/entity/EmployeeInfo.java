@@ -10,7 +10,7 @@ public class EmployeeInfo {
     @SerializedName("age")
     private String mAge;
 
-    @SerializedName("link")
+    @SerializedName("image")
     private String mImageLink;
 
     @SerializedName("position")
@@ -19,6 +19,7 @@ public class EmployeeInfo {
     @SerializedName("id")
     private String mId;
 
+    @SerializedName("quote")
     private String mQuote;
 
     public EmployeeInfo() {

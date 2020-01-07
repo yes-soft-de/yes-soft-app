@@ -12,6 +12,7 @@ import de.yessoft.android.entity.Skill;
 import de.yessoft.android.service.EmployeeService;
 
 public class EmployeeListPresenter {
+    private static final String TAG = "ML_EListPresenter";
     private EmployeeService mEmployeeService;
 
     public EmployeeListPresenter() {

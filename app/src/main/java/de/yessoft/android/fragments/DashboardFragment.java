@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.yessoft.android.R;
-import de.yessoft.android.activity.MainActivity.IMainActivity;
+import de.yessoft.android.activity.mainActivity.IMainActivity;
 import de.yessoft.android.adapter.dashboard.DashboardAdapter;
 
 public class DashboardFragment extends Fragment {

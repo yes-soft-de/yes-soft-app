@@ -82,11 +82,11 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
     }
 
     private void initEmployeeList() {
+        assert getContext() != null;
         rvEmployeesCards.setLayoutManager(new CardSliderLayoutManager(getContext()));
+        new CardSnapHelper().attachToRecyclerView(rvEmployeesCards);
 
         new InfoGetter().execute();
-
-        new CardSnapHelper().attachToRecyclerView(rvEmployeesCards);
 
         rvEmployeesCards.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -98,7 +98,6 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
         });
 
         employeesLayoutManager = (CardSliderLayoutManager) rvEmployeesCards.getLayoutManager();
-
         int[] animH = new int[]{R.anim.slide_in_right, R.anim.slide_out_left};
         int[] animV = new int[]{R.anim.slide_in_top, R.anim.slide_out_bottom};
         updateActiveFragment(animH, animV);
@@ -262,8 +261,11 @@ public class EmployeeListFragment extends Fragment implements IEmployeeList {
         @Override
         protected void onPostExecute(List<EmployeeDetails> employeeDetails) {
             super.onPostExecute(employeeDetails);
-            mAdapter.setEmployeeList(employeeDetails);
+            mAdapter = new EmployeeCardsAdapter(getContext(), employeeDetails);
+            rvEmployeesCards.setAdapter(mAdapter);
             mEmployeeList = employeeDetails;
+            currentPosition = employeeDetails.size() - 1;
+            employeesLayoutManager.scrollToPosition(employeeDetails.size() - 1);
             displayGeneralInfo();
         }
     }

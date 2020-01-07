@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 
 public class ServicesService {
 
-    Retrofit mClient;
+    private Retrofit mClient;
 
     public ServicesService() {
         mClient = new EmployeeDAO().getNetworkClient();
